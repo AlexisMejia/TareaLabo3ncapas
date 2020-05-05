@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Comprar producto</title>
+</head>
+<body>
+
+	<h1>Productos</h1>
+	<form action="#" th:action="@{/validar}" th:object="${product}"
+		method="post">
+		<div class="container">
+			<div class="select-group">
+				<label>Seleccione producto a comprar</label>
+				<select th:field="*{id}">
+					<option th:each="p : ${list}" th:value="${p.id}"
+						th:text="${p.nombre}">
+					</option>
+				</select> <br> <input type="text" th:field="*{cantidad}">
+			</div>
+			<br>
+			<div class="sub">
+				<input type="submit" value="Comprar"><input type="reset"
+					value="Borrar datos ingresados">
+
+			</div>
+		</div>
+
+	</form>
+
+</body>
+</html>
